@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/gulldan1996/involve/static/css/main.82d52761.chunk.css",
-    "main.js": "/gulldan1996/involve/static/js/main.137e9eb1.chunk.js",
-    "main.js.map": "/gulldan1996/involve/static/js/main.137e9eb1.chunk.js.map",
-    "runtime-main.js": "/gulldan1996/involve/static/js/runtime-main.e37e9c37.js",
-    "runtime-main.js.map": "/gulldan1996/involve/static/js/runtime-main.e37e9c37.js.map",
-    "static/js/2.714b9962.chunk.js": "/gulldan1996/involve/static/js/2.714b9962.chunk.js",
-    "static/js/2.714b9962.chunk.js.map": "/gulldan1996/involve/static/js/2.714b9962.chunk.js.map",
-    "index.html": "/gulldan1996/involve/index.html",
-    "precache-manifest.9a3c0814c1e4465513d6504377ca1552.js": "/gulldan1996/involve/precache-manifest.9a3c0814c1e4465513d6504377ca1552.js",
-    "service-worker.js": "/gulldan1996/involve/service-worker.js",
-    "static/css/main.82d52761.chunk.css.map": "/gulldan1996/involve/static/css/main.82d52761.chunk.css.map",
-    "static/js/2.714b9962.chunk.js.LICENSE.txt": "/gulldan1996/involve/static/js/2.714b9962.chunk.js.LICENSE.txt",
-    "static/media/Buy.scss": "/gulldan1996/involve/static/media/ArrowOpen.cbb6bf04.svg"
+    "main.css": "/gulldan1996/involve-test/static/css/main.d448b6d0.chunk.css",
+    "main.js": "/gulldan1996/involve-test/static/js/main.137e9eb1.chunk.js",
+    "main.js.map": "/gulldan1996/involve-test/static/js/main.137e9eb1.chunk.js.map",
+    "runtime-main.js": "/gulldan1996/involve-test/static/js/runtime-main.6cdf5f49.js",
+    "runtime-main.js.map": "/gulldan1996/involve-test/static/js/runtime-main.6cdf5f49.js.map",
+    "static/js/2.714b9962.chunk.js": "/gulldan1996/involve-test/static/js/2.714b9962.chunk.js",
+    "static/js/2.714b9962.chunk.js.map": "/gulldan1996/involve-test/static/js/2.714b9962.chunk.js.map",
+    "index.html": "/gulldan1996/involve-test/index.html",
+    "precache-manifest.1be8535cf6b80f52231a1d35328bce9d.js": "/gulldan1996/involve-test/precache-manifest.1be8535cf6b80f52231a1d35328bce9d.js",
+    "service-worker.js": "/gulldan1996/involve-test/service-worker.js",
+    "static/css/main.d448b6d0.chunk.css.map": "/gulldan1996/involve-test/static/css/main.d448b6d0.chunk.css.map",
+    "static/js/2.714b9962.chunk.js.LICENSE.txt": "/gulldan1996/involve-test/static/js/2.714b9962.chunk.js.LICENSE.txt",
+    "static/media/Buy.scss": "/gulldan1996/involve-test/static/media/ArrowOpen.cbb6bf04.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e37e9c37.js",
+    "static/js/runtime-main.6cdf5f49.js",
     "static/js/2.714b9962.chunk.js",
-    "static/css/main.82d52761.chunk.css",
+    "static/css/main.d448b6d0.chunk.css",
     "static/js/main.137e9eb1.chunk.js"
   ]
 }
