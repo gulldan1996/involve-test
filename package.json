@@ -1,6 +1,6 @@
 {
   "name": "involve",
-  "homepage": "https://github.com/gulldan1996/involve/",
+  "homepage": "https://gulldan1996.github.io/involve-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
