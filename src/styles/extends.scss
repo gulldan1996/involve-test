@@ -1,0 +1,61 @@
+// %small-size {
+//   font-size: 16px;
+//   line-height: 23px;
+//   @media (max-width: $break-point-table-lg) {
+//     font-size: 14px;
+//     line-height: 20px;
+
+//   }
+// }
+
+// %normal-size {
+//   font-size: 20px;
+//   line-height: 28px;
+//   @media (max-width: $break-point-desktop-small) {
+//     font-size: 18px;
+//     line-height: 26px;
+//   }
+//   @media (max-width: $break-point-table-lg) {
+//     font-size: 16px;
+//     line-height: 26px;
+//   }
+// }
+
+// %middle-size {
+//   font-size: 24px;
+//   line-height: 29px;
+//   @media (max-width: $break-point-desktop-small) {
+//     font-size: 22px;
+//     line-height: 29px;
+//   }
+//   @media (max-width: $break-point-table-lg) {
+//     font-size: 20px;
+//     line-height: 25px;
+//   }
+//   @media (max-width: $break-point-phone) {
+//     font-size: 18px;
+//     line-height: 43px;
+//   }
+// }
+
+%h2-size {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+// %big-size {
+//   font-size: 48px;
+//   line-height: 59px;
+//   @media (max-width: $break-point-desktop-small) {
+//     font-size: 44px;
+//     line-height: 59px;
+//   }
+//   @media (max-width: $break-point-table-lg) {
+//     font-size: 36px;
+//     line-height: 48px;
+//   }
+//   @media (max-width: $break-point-phone) {
+//     font-size: 28px;
+//     line-height: 40px;
+//   }
+// }

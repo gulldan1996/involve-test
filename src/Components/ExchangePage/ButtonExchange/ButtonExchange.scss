@@ -1,0 +1,14 @@
+@import '../../../index.scss';
+
+
+.button-exchange {
+  width: 125px;
+  height: 48px;
+  margin-top: 36px;
+
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background: $cyan;
+}

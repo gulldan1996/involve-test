@@ -1,0 +1,11 @@
+@import '../../../index.scss';
+
+
+.input {
+  width: 100%;
+  padding: 12px 52px 12px 20px;
+  border: 1px solid $gray;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 19px;
+}

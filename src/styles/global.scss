@@ -1,0 +1,69 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $primary-font;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: $black;
+  background: #e5e5e5;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']:hover,
+input[type='number']:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}

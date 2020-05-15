@@ -1,0 +1,81 @@
+@import '../../../index.scss';
+
+.buy {
+  position: relative;
+
+  width: 313px;
+
+  &-title {
+    @extend %h2-size;
+  }
+
+  &-currency {
+    font-size: 18px;
+    font-weight: $normal;
+    line-height: 21px;
+
+    position: relative;
+
+    margin-top: 36px;
+    padding: 12px 50px 12px 20px;
+
+    border: 1px solid $gray;
+    border-radius: 4px;
+
+    &::after {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      width: 10px;
+      height: 6px;
+
+      content: '';
+
+      background-image: url('../../../img/Arrow.svg');
+      background-repeat: no-repeat;
+    }
+
+    &--dec {
+      border-color: #58b4ae;
+
+      &::after {
+        background-image: url('../../../img/ArrowOpen.svg');
+      }
+    }
+
+    &__list {
+      position: absolute;
+      top: 140px;
+      left: 0;
+
+      width: 313px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      list-style: none;
+
+      border-radius: 4px;
+      background-color: $white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, .16);
+    }
+
+    &__item {
+      font-size: 18px;
+      line-height: 21px;
+
+      padding: 8px 20px;
+
+      transition: all .3s;
+
+      &:hover {
+        background-color: #f4f4f4;;
+      }
+    }
+  }
+
+  &-input {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
