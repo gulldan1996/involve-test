@@ -53,9 +53,10 @@ const calculateLoading = (bool) => ({
   bool,
 });
 
-const exchangeLoading = (bool) => ({
+const exchangeLoading = (bool, redirect) => ({
   type: ACTION_TYPE.EXCHANGE_LOADING_TOGGLE,
   bool,
+  redirect,
 });
 
 export const fetchCalculationData = (
@@ -67,23 +68,22 @@ export const fetchCalculationData = (
 ) => async (dispatch) => {
   if (base && amount && invoice && withdraw) {
     if (btn === "btn") {
-      console.log(btn);
-
-      dispatch(exchangeLoading(true));
+      await dispatch(exchangeLoading(true));
       await fetch(
         `https://involve-it.com/test_front/api/payMethods/calculate?base=${base}&amount=${amount}&invoicePayMethod=${invoice}&withdrawPayMethod=${withdraw}`
       )
         .then((res) => res.json())
         .then((data) => dispatch(calculationData(data)));
-      dispatch(exchangeLoading(false));
+      await dispatch(exchangeLoading(true, "redirect"));
+      await dispatch(exchangeLoading(false));
     } else {
-      dispatch(calculateLoading(true));
+      await dispatch(calculateLoading(true));
       await fetch(
         `https://involve-it.com/test_front/api/payMethods/calculate?base=${base}&amount=${amount}&invoicePayMethod=${invoice}&withdrawPayMethod=${withdraw}`
       )
         .then((res) => res.json())
         .then((data) => dispatch(calculationData(data)));
-      dispatch(calculateLoading(false));
+      await dispatch(calculateLoading(false));
     }
   }
 };

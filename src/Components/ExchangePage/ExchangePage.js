@@ -19,6 +19,7 @@ const ExchangePage = ({
   confirmData,
   calculateLoading,
   exchangeLoading,
+  exchangeRedirect,
 }) => {
   const {
     base,
@@ -54,6 +55,7 @@ const ExchangePage = ({
           withdrawPayMethod={withdrawPayMethod}
           calculateLoading={calculateLoading}
           exchangeLoading={exchangeLoading}
+          exchangeRedirect={exchangeRedirect}
         />
       </div>
     </div>
@@ -65,6 +67,7 @@ const mapStateToProps = (state) => ({
   confirmData: getConfirmData(state),
   calculateLoading: getCalculateLoading(state),
   exchangeLoading: getExchangeLoading(state),
+  exchangeRedirect: state.exchangeRedirect,
 });
 
 const mapDispatchToProps = (dispatch) => ({

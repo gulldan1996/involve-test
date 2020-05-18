@@ -19,6 +19,7 @@ const initialState = {
   confirmData: false,
   success: null,
   exchangeLoading: false,
+  exchangeRedirect: 'not redirect'
 };
 
 export function rootReducer(state = initialState, action) {
@@ -142,12 +143,13 @@ export function rootReducer(state = initialState, action) {
         success: req,
       };
     }
-    // open button spinner and opacity
+    // open button spinner and opacity and redirect to details
     case ACTION_TYPE.EXCHANGE_LOADING_TOGGLE: {
-      const { bool } = action;
+      const { bool, redirect } = action;
       return {
         ...state,
         exchangeLoading: bool,
+        exchangeRedirect: redirect
       };
     }
     default:

@@ -10,6 +10,7 @@ const ButtonExchange = ({
   invoicePayMethod,
   withdrawPayMethod,
   exchangeLoading,
+  exchangeRedirect
 }) => {
   return (
     <button
@@ -26,7 +27,7 @@ const ButtonExchange = ({
       className="button-exchange"
     >
       {exchangeLoading ? <Spinner style={{ right: 52 }} /> : "Exchange"}
-      <Redirect to={exchangeLoading ? "/Details" : "/Home"} />
+      <Redirect to={exchangeRedirect === 'redirect' ? "/Details" : "/Home"} />
     </button>
   );
 };
