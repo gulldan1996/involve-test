@@ -4,7 +4,6 @@ import { HashRouter } from "react-router-dom";
 import { store } from "./redux/createStore";
 import RouterNav from "./RouterNav";
 
-
 export const App = () => (
   <HashRouter>
     <Provider store={store}>

@@ -1,0 +1,67 @@
+@import '../../index.scss';
+
+.card-details {
+  width: 396px;
+  height: 263px;
+}
+
+.details {
+  &__title {
+    margin-bottom: 36px;
+
+@extend %h2-size;
+  }
+  &-position {
+    &__line {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+
+      margin-bottom: 33px;
+    }
+
+    &__name {
+      color: #818181;
+    }
+
+    &__value {
+      font-weight: 500;
+    }
+  }
+}
+
+.details-btn button {
+  width: 125px;
+  height: 48px;
+
+  border-radius: 4px;
+  outline: none;
+}
+
+.details-btn {
+  display: flex;
+  justify-content: space-between;
+
+  width: 275px;
+  margin: 0 auto;
+  &__cancel {
+    color: $black;
+    border: 1px solid $cyan;
+    background-color: $white;
+  }
+  &__confirm {
+    position: relative;
+
+    color: $white;
+    border: none;
+    background: $cyan;
+  }
+}
+
+@media screen and (max-width: $break-point-phone) {
+  .card-details {
+    width: 280px;
+    padding: 10px;
+  }
+}

@@ -29,11 +29,17 @@ a {
   text-decoration: none;
 }
 
+button,
+a {
+  transition: .5s;
+}
+
 button:hover,
 button:focus,
 a:hover,
 a:focus {
   cursor: pointer;
+  opacity: .8;
 }
 
 img {

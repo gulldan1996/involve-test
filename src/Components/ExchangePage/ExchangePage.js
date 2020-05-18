@@ -4,36 +4,73 @@ import { connect } from "react-redux";
 import Sell from "./Sell/Sell";
 import Buy from "./Buy/Buy";
 import ButtonExchange from "./ButtonExchange/ButtonExchange";
-import { getCalculationData } from "../../redux/selectors";
-import { fetchCalculationData } from "../../redux/actions";
+import {
+  getCalculationData,
+  getConfirmData,
+  getCalculateLoading,
+  getExchangeLoading,
+} from "../../redux/selectors";
+import { fetchCalculationData, confirmDataToggle } from "../../redux/actions";
 
-const ExchangePage = ({ getCalculationData, fetchCalculationData }) => {
-  const { base, amount, invoicePayMethod, withdrawPayMethod } = getCalculationData;
+const ExchangePage = ({
+  getCalculationData,
+  fetchCalculationData,
+  confirmDataToggle,
+  confirmData,
+  calculateLoading,
+  exchangeLoading,
+}) => {
+  const {
+    base,
+    amount,
+    invoicePayMethod,
+    withdrawPayMethod,
+  } = getCalculationData;
 
   useEffect(() => {
-    fetchCalculationData(base, amount, invoicePayMethod, withdrawPayMethod)
-  }, [base, amount, invoicePayMethod, withdrawPayMethod])
+    fetchCalculationData(base, amount, invoicePayMethod, withdrawPayMethod);
+  }, [base, amount, invoicePayMethod, withdrawPayMethod, fetchCalculationData]);
 
   return (
-  <div className="card">
-    <div className="card-exchange">
+    <div
+      className={
+        exchangeLoading
+          ? "card-exchange card-exchange-opacity"
+          : "card-exchange"
+      }
+    >
       <div className="card-position">
         <Sell />
         <Buy />
       </div>
       <div className="card-btn">
-        <ButtonExchange />
+        <ButtonExchange
+          confirmDataToggle={confirmDataToggle}
+          confirmData={confirmData}
+          base={base}
+          amount={amount}
+          fetchCalculationData={fetchCalculationData}
+          invoicePayMethod={invoicePayMethod}
+          withdrawPayMethod={withdrawPayMethod}
+          calculateLoading={calculateLoading}
+          exchangeLoading={exchangeLoading}
+        />
       </div>
     </div>
-  </div>
-)};
+  );
+};
 
 const mapStateToProps = (state) => ({
-  getCalculationData: getCalculationData(state)
+  getCalculationData: getCalculationData(state),
+  confirmData: getConfirmData(state),
+  calculateLoading: getCalculateLoading(state),
+  exchangeLoading: getExchangeLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCalculationData: (b, a, i, w) => dispatch(fetchCalculationData(b, a, i, w))
+  fetchCalculationData: (b, a, i, w, btn) =>
+    dispatch(fetchCalculationData(b, a, i, w, btn)),
+  confirmDataToggle: (bool) => dispatch(confirmDataToggle(bool)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExchangePage);

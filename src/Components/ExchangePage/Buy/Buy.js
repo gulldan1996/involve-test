@@ -7,8 +7,13 @@ import {
   getWithdraw,
   getBuyList,
   getInputWithdraw,
+  getCalculateLoading,
 } from "../../../redux/selectors";
-import { getCurrencyWithdraw, handleBuyList, handlerInput } from "../../../redux/actions";
+import {
+  getCurrencyWithdraw,
+  handleBuyList,
+  handlerInput,
+} from "../../../redux/actions";
 import OutsideClickHandler from "react-outside-click-handler";
 import InputCurrency from "../InputCurrency/InputCurrency";
 
@@ -20,11 +25,12 @@ const Buy = ({
   getBuyList,
   handleBuyList,
   getInputWithdraw,
-  handlerInput
+  handlerInput,
+  getCalculateLoading,
 }) => {
   useEffect(() => {
     getCurrencyWithdraw(listWithdraw[0]);
-  }, [loading]);
+  }, [loading, getCurrencyWithdraw, listWithdraw]);
 
   return (
     <div className="buy">
@@ -63,6 +69,7 @@ const Buy = ({
           value={getInputWithdraw}
           handlerInput={handlerInput}
           placeholder="00.00"
+          calculateLoading={getCalculateLoading}
         />
       </div>
     </div>
@@ -74,13 +81,14 @@ const mapStateToProps = (state) => ({
   withdraw: getWithdraw(state),
   loading: loading(state),
   getBuyList: getBuyList(state),
-  getInputWithdraw: getInputWithdraw(state)
+  getInputWithdraw: getInputWithdraw(state),
+  getCalculateLoading: getCalculateLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencyWithdraw: (withdraw) => dispatch(getCurrencyWithdraw(withdraw)),
   handleBuyList: (bool) => dispatch(handleBuyList(bool)),
-  handlerInput: (base, amount) => dispatch(handlerInput(base, amount))
+  handlerInput: (base, amount) => dispatch(handlerInput(base, amount)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Buy);

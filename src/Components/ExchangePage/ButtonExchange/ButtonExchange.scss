@@ -2,6 +2,8 @@
 
 
 .button-exchange {
+  position: relative;
+
   width: 125px;
   height: 48px;
   margin-top: 36px;
@@ -12,3 +14,19 @@
   outline: none;
   background: $cyan;
 }
+
+.button-exchange:disabled {
+  cursor: not-allowed;
+
+  color: #666;
+  border: 1px solid #999;
+  background-color: #ccc;
+}
+
+@media screen and (max-width: $break-point-phone) {
+  .button-exchange {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+

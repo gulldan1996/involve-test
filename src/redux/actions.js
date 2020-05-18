@@ -6,6 +6,10 @@ export const ACTION_TYPE = {
   GET_CURRENCY_WITHDRAW: "GET_CURRENCY_WITHDRAW",
   CALCULATION_DATA: "CALCULATION_DATA",
   HANDLER_INPUT: "HANDLER_INPUT",
+  CALCULATE_LOADING: "CALCULATE_LOADING",
+  CONFIRM_DATA_TOGGLE: "CONFIRM_DATA_TOGGLE",
+  SUCCESS: "SUCCESS",
+  EXCHANGE_LOADING_TOGGLE: "EXCHANGE_LOADING_TOGGLE",
 };
 
 export const loadingListMethods = (list) => ({
@@ -39,19 +43,80 @@ export const handlerInput = (base, amount) => ({
   amount,
 });
 
-const calculationData = data => {
-  return ({
+const calculationData = (data) => ({
   type: ACTION_TYPE.CALCULATION_DATA,
-  data
-})}
+  data,
+});
 
-export const fetchCalculationData = (base, amount, invoice, withdraw) => dispatch => {
-  if(base && amount && invoice && withdraw) {
-    fetch(
-      `https://involve-it.com/test_front/api/payMethods/calculate?base=${base}&amount=${amount}&invoicePayMethod=${invoice}&withdrawPayMethod=${withdraw}`
-    )
-      .then((res) => res.json())
-      .then((data) => dispatch(calculationData(data)));
+const calculateLoading = (bool) => ({
+  type: ACTION_TYPE.CALCULATE_LOADING,
+  bool,
+});
+
+const exchangeLoading = (bool) => ({
+  type: ACTION_TYPE.EXCHANGE_LOADING_TOGGLE,
+  bool,
+});
+
+export const fetchCalculationData = (
+  base,
+  amount,
+  invoice,
+  withdraw,
+  btn
+) => async (dispatch) => {
+  if (base && amount && invoice && withdraw) {
+    if (btn === "btn") {
+      console.log(btn);
+
+      dispatch(exchangeLoading(true));
+      await fetch(
+        `https://involve-it.com/test_front/api/payMethods/calculate?base=${base}&amount=${amount}&invoicePayMethod=${invoice}&withdrawPayMethod=${withdraw}`
+      )
+        .then((res) => res.json())
+        .then((data) => dispatch(calculationData(data)));
+      dispatch(exchangeLoading(false));
+    } else {
+      dispatch(calculateLoading(true));
+      await fetch(
+        `https://involve-it.com/test_front/api/payMethods/calculate?base=${base}&amount=${amount}&invoicePayMethod=${invoice}&withdrawPayMethod=${withdraw}`
+      )
+        .then((res) => res.json())
+        .then((data) => dispatch(calculationData(data)));
+      dispatch(calculateLoading(false));
+    }
   }
 };
 
+const confirmDataLoading = (bool) => {
+  return {
+    type: ACTION_TYPE.CONFIRM_DATA_TOGGLE,
+    bool,
+  };
+};
+
+const success = (req) => {
+  return {
+    type: ACTION_TYPE.SUCCESS,
+    req,
+  };
+};
+
+export const confirmDataToggle = (calculateData) => async (dispatch) => {
+  const { base, amount, invoicePayMethod, withdrawPayMethod } = calculateData;
+  dispatch(confirmDataLoading(true));
+  await fetch("https://involve-it.com/test_front/api/bids", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ amount, base, invoicePayMethod, withdrawPayMethod }),
+  })
+    .then((res) => res.json())
+    .then((req) =>
+      req.message === "Success"
+        ? dispatch(success(req))
+        : dispatch(success(req))
+    );
+  dispatch(confirmDataLoading(false));
+};

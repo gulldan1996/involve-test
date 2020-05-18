@@ -46,6 +46,7 @@
 
     &__list {
       position: absolute;
+      z-index: 5;
       top: 140px;
       left: 0;
 
@@ -77,5 +78,33 @@
   &-input {
     width: 100%;
     margin-top: 20px;
+  }
+}
+
+
+@media screen and (max-width: $break-point-tablet) {
+  .sell {
+    width: 230px;
+    &-currency {
+      &__list {
+        top: 130px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: $break-point-phone) {
+  .sell {
+    margin-top: 20px;
+
+    &-currency {
+      margin-top: 15px;
+      &__list {
+        top: 100px;
+
+        width: 250px;
+      }
+    }
   }
 }

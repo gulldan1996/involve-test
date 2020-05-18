@@ -6,9 +6,14 @@ import {
   loading,
   getInvoice,
   getSellList,
-  getInputInvoice
+  getInputInvoice,
+  getCalculateLoading,
 } from "../../../redux/selectors";
-import { getCurrencyInvoice, handleSellList, handlerInput } from "../../../redux/actions";
+import {
+  getCurrencyInvoice,
+  handleSellList,
+  handlerInput,
+} from "../../../redux/actions";
 import InputCurrency from "../InputCurrency/InputCurrency";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -19,11 +24,13 @@ const Sell = ({
   getSellList,
   handleSellList,
   handlerInput,
-  getInputInvoice
+  getInputInvoice,
+  getCalculateLoading,
+  loading,
 }) => {
   useEffect(() => {
     getCurrencyInvoice(listInvoice[0]);
-  }, []);
+  }, [loading, getCurrencyInvoice, listInvoice]);
 
   return (
     <div className="sell">
@@ -61,6 +68,7 @@ const Sell = ({
           value={getInputInvoice}
           handlerInput={handlerInput}
           placeholder="00.00"
+          calculateLoading={getCalculateLoading}
         />
       </div>
     </div>
@@ -72,13 +80,14 @@ const mapStateToProps = (state) => ({
   invoice: getInvoice(state),
   loading: loading(state),
   getSellList: getSellList(state),
-  getInputInvoice: getInputInvoice(state)
+  getInputInvoice: getInputInvoice(state),
+  getCalculateLoading: getCalculateLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getCurrencyInvoice: (invoice) => dispatch(getCurrencyInvoice(invoice)),
   handleSellList: (bool) => dispatch(handleSellList(bool)),
-  handlerInput: (base, amount) => dispatch(handlerInput(base, amount))
+  handlerInput: (base, amount) => dispatch(handlerInput(base, amount)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sell);

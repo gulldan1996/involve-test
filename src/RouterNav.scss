@@ -1,0 +1,32 @@
+@import './index.scss';
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.card {
+  padding: 28px 32px;
+
+  border-radius: 8px;
+  background-color: $white;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .08);
+
+  &-opacity {
+    opacity: .4;
+  }
+  &-btn {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: $break-point-phone) {
+  .card {
+    padding: 15px;
+  }
+}
